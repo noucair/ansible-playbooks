@@ -1,0 +1,9 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: Set directory permissions for group owners
+      file:
+        path: /var/run/docker.sock
+        group: docker
+        mode: "0777"

@@ -1,0 +1,12 @@
+---
+- name: Check OpenSSL version on AIX hosts
+  hosts: all
+  tasks:
+    - name: Run lslpp command
+      become: true
+      shell: lslpp -L | grep -i openssl.base
+      register: openssl_output
+
+    - name: Display output
+      debug:
+        var: openssl_output.stdout_lines

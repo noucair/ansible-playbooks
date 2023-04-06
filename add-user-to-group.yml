@@ -1,0 +1,8 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: Add the user 'zabbix' with a specific uid and a primary group of 'docker'
+      ansible.builtin.user:
+        name: zabbix
+        group: docker
